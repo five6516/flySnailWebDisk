@@ -1,36 +1,35 @@
 # flySnailWebDisk
 
-#### Description
+#### 介绍
 自制简易网盘
 
-#### Software Architecture
-Software architecture description
+#### 软件架构
+c++写的简易网盘
 
-#### Installation
+使用开源项目
+- httplib
+- inja
+- nlohmann
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### 编译方法
 
-#### Instructions
+- Windows
+1.  使用cmake抓换vs工程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- Linux
+1. `cmake ..`
+2. `make`
 
-#### Contribution
+#### 使用说明
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+1. templates为模板文件夹
+2. ResDir为文件存储目录
+3. `./FlySnailWebDisk` 启动程序
+4. 默认端口为8888
 
+#### 参与贡献
 
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1.  Fork 本仓库
+2.  新建 Feat_xxx 分支
+3.  提交代码
+4.  新建 Pull Request
