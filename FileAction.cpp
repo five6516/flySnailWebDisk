@@ -9,6 +9,24 @@ FileAction::~FileAction()
 {
 }
 
+bool FileAction::dirExists(const std::string& dirPath)
+{
+    std::filesystem::path path(dirPath);
+    return std::filesystem::exists(path);
+}
+
+bool FileAction::fileExists(const std::string& filePath)
+{
+    std::filesystem::path path(filePath);
+    return std::filesystem::exists(path);
+}
+
+bool FileAction::makeDir(const std::string& dirPath)
+{
+    std::filesystem::path path(dirPath);
+    return std::filesystem::create_directory(path);
+}
+
 std::vector<FileInfo> FileAction::listOfDir(const std::string& filePath,bool bIterate)
 {
     using namespace std;

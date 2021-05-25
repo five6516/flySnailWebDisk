@@ -1,6 +1,7 @@
 #include "Handle.h"
 #include "Render.h"
 #include "FileAction.h"
+#include "default_index.h"
 #include <iostream>
 
 Handle::Handle(httplib::Server* svr):m_pServer(svr)
@@ -40,7 +41,10 @@ void Handle::IndexView(const Request & request, Response & response)
         listData["filelist"].push_back(data);
     }
 
-    response.set_content(Render::render_file("index.html",listData),"text/html");
+    if(!fileaction.fileExists("./ResDir/index.html"))
+        response.set_content(Render::render_string(strDefaultIndex,listData),"text/html");
+    else
+        response.set_content(Render::render_file("index.html",listData),"text/html");
 }
 
 void Handle::ListFile(const Request & request, Response & response)
@@ -59,17 +63,26 @@ void Handle::ListFile(const Request & request, Response & response)
         listData["filelist"].push_back(data);
     }
 
-    response.set_content(Render::render_file("index.html",listData),"text/html");
+    if(!fileaction.fileExists("./ResDir/index.html"))
+        response.set_content(Render::render_string(strDefaultIndex,listData),"text/html");
+    else
+        response.set_content(Render::render_file("index.html",listData),"text/html");
 }
 
 void Handle::UpLoadFile(const Request& request, Response& response)
 {
+    const std::string resDir = "./ResDir";
+
+    FileAction fileaction;
+    if(!fileaction.dirExists(resDir))
+        fileaction.makeDir(resDir);
+
     auto file = request.get_file_value("file");
 
     std::cout << "file length: " << file.content.length() << std::endl
         << "file name: " << file.filename << std::endl;
 
-        std::ofstream ofs("./ResDir/"+ file.filename, std::ios::binary);
+        std::ofstream ofs(resDir + "/"+ file.filename, std::ios::binary);
         ofs << file.content;
 
     //response.set_redirect("/");

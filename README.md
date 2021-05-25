@@ -14,7 +14,7 @@ c++写的简易网盘
 #### 编译方法
 
 - Windows
-1.  使用cmake抓换vs工程
+1.  使用cmake转换vs工程
 
 - Linux
 1. `cmake ..`
